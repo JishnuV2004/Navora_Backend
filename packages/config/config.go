@@ -9,11 +9,7 @@ import (
 
 type Config struct {
 	AppPort        string
-	DBUrl          string
 	RedisAddr      string
-	JWTSecret      string
-	RazorpayKey    string
-	RazorpaySecret string
 }
 
 func LeadConfig() *Config {
@@ -23,10 +19,6 @@ func LeadConfig() *Config {
 		log.Println("No env file found")
 		log.Println("Error loading .env:", err)
 	}
-
-	redisUrl :=  os.Getenv("REDIS_ADDR")
-	//production case (neon)
-	if redisUrl ==""{
 
 	//loads .env and validate
 	required := []string{
@@ -40,7 +32,6 @@ func LeadConfig() *Config {
 		if os.Getenv(key) == "" {
 			log.Fatalf("Missing required env variable: %s", key)
 		}
-	}
 	}
 	//return the hole struct
 	return &Config{
