@@ -92,7 +92,7 @@ func SentOTPService(email string) (otp string, err error) {
 	htmlContent := "<h2>Your OTP</h2><b>" + RandOTP + "</b><p>Valid for 5 min</p>"
 
 	if err := utils.SentToEmail(email, "Your Navora OTP", htmlContent); err != nil {
-		log.Printf("Warning: Failed to send OTP email: %v. Storing in Redis anyway for local debug/fallback.", err)
+		return "", err
 	}
 
 	if err := utils.SaveOTP(email, RandOTP); err != nil {

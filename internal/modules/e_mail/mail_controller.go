@@ -38,12 +38,12 @@ func SentOTPController(c *fiber.Ctx) error {
 		return utils.Error(c, 400, "email required", nil)
 	}
 
-	_, err := SentOTPService(OtpEmail.Email)
+	otp, err := SentOTPService(OtpEmail.Email)
 	if err != nil {
 		return utils.Error(c, 500, "failed to send the OTP", err.Error())
 	}
 
-	return utils.Success(c, 200, "OTP sented", nil)
+	return utils.Success(c, 200, "OTP sented", otp)
 }
 
 func VerifyOTPController(c *fiber.Ctx) error {
