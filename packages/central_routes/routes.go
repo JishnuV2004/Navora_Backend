@@ -10,7 +10,7 @@ import (
 func SetUp(app *fiber.App) {
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "http://localhost:5173,https://yourfrontend.vercel.app",
+		AllowOrigins:     "http://localhost:5173,https://www.navoratechnologies.in",
 		AllowMethods:     "GET,POST,PUT,DELETE,OPTIONS",
 		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
 		AllowCredentials: true,
