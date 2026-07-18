@@ -18,7 +18,7 @@ var (
 func NewRedisClient(cfg *config.Config) (*redis.Client, error) {
 
 	//  Check if production Redis URL exists (Upstash)
-	redisURL := os.Getenv("REDIS_URL")
+	redisURL := os.Getenv("REDIS_ADDR")
 
 	if redisURL != "" {
 
